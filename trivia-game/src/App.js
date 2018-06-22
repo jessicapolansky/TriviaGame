@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import { ShowQuestions } from './ShowQuestions'
+import { Answers } from './Answers'
 
 class App extends Component {
   constructor(props) {
     super(props);    
-    this.state = { questions: [] };
+    this.state = { questions: [], answers: [] };
     this.get_questions();
   }
   
@@ -32,6 +33,7 @@ class App extends Component {
         <h1>Trivia Game Night!</h1>
         <button onClick={e => this.get_questions(e)}>Get questions</button>
         <ShowQuestions trivia={this.state.questions} />
+        <Answers trivia={this.state.questions}/>
       </div>
     );
   }

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 export class ShowQuestions extends Component {
     parseQuestionData () {
-      const questionArr =
+      const questionList =
           this.props.trivia.map(questionItem => {
             console.log('QuestionItem', questionItem)
             return (
-              <div className="DQ-base">
+              <div>
                 <p dangerouslySetInnerHTML={{__html: questionItem.question}} />
                 <div>
                   
@@ -14,7 +14,7 @@ export class ShowQuestions extends Component {
               </div>
             )
           })
-      return questionArr
+      return questionList
     }
     render () {
       var questions = []

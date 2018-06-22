@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.static('build'));
 
 app.get('/api/get-questions', function (req, res, next) {
-  axios.get('https://opentdb.com/api.php?amount=3')
+  axios.get('https://opentdb.com/api.php?amount=1')
     .then(function (response) {
       res.json(response.data);
       console.log(response.data);
