@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
 
-function checkAnswer (button) {
-    if (button == button) {
-        this.setState({message: "Good Job!"}); 
+function checkAnswer (props) {
+    console.log("Props: ", props)
+    if (props.status === "correct") {
+        return (
+          <div>
+            <h6>Correct!</h6>
+          </div>
+        );
+      } else if (props.status === 'incorrect') {
+        return (
+          <div>
+            <h6>Incorrect!</h6>
+          </div>
+        );
+      }
+    
+      return <div/>;
     }
-    else {
-        this.setState({message: "WRONG"})
-    }}
 
 function shuffleArray(array) {
     let i = array.length - 1;
@@ -23,9 +34,9 @@ function shuffleArray(array) {
         return (
             <div>
             <button dangerouslySetInnerHTML={{__html: shuffledAnswers[0]}} onClick={checkAnswer}/>
-            <button dangerouslySetInnerHTML={{__html: shuffledAnswers[1] }}/>
-            <button dangerouslySetInnerHTML={{__html: shuffledAnswers[2] }}/>
-            <button dangerouslySetInnerHTML={{__html: shuffledAnswers[3] }}/>
+            <button dangerouslySetInnerHTML={{__html: shuffledAnswers[1]}} onClick={checkAnswer}/>
+            <button dangerouslySetInnerHTML={{__html: shuffledAnswers[2]}} onClick={checkAnswer}/>
+            <button dangerouslySetInnerHTML={{__html: shuffledAnswers[3]}} onClick={checkAnswer}/>
             </div>
         )}
         // function getTruth () {
