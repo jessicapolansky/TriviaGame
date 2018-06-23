@@ -28,21 +28,21 @@ function shuffleArray(array) {
       array[j] = temp;
     }
     return array;
-  }
-  function getAnswerButton (shuffledAnswers) {
+}
+function getAnswerButton (shuffledAnswers) {
       console.log("getAnswerButton", shuffledAnswers);
-        return (
+      var answerButtons = []
+      for (var i = 0; i < shuffledAnswers.length; i++) {
+        answerButtons.push (
             <div>
-            <button dangerouslySetInnerHTML={{__html: shuffledAnswers[0]}} onClick={checkAnswer}/>
-            <button dangerouslySetInnerHTML={{__html: shuffledAnswers[1]}} onClick={checkAnswer}/>
-            <button dangerouslySetInnerHTML={{__html: shuffledAnswers[2]}} onClick={checkAnswer}/>
-            <button dangerouslySetInnerHTML={{__html: shuffledAnswers[3]}} onClick={checkAnswer}/>
+            <button dangerouslySetInnerHTML={{__html: shuffledAnswers[i]}} onClick={checkAnswer(shuffledAnswers[i])}/>
             </div>
         )}
+        return answerButtons;
         // function getTruth () {
         //     this.props.trivia.map(answerItem => {
         //         var trueAnswer = answerItem.correct_answer            
         //         return (trueAnswer)
         //     })}
-
+      }
   export {checkAnswer, shuffleArray, getAnswerButton};

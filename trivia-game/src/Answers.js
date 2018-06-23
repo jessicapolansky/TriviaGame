@@ -7,10 +7,9 @@ export class Answers extends Component {
         this.state = {message: ""};
     }
     getAnswerList () {
-        const answerList =[]
+        const answerList = []
         var shuffledAnswers = []
         var newAnswerList = []
-        var trueAnswer
           this.props.trivia.map(answerItem => {
             for (var i = 0; i < (answerItem.incorrect_answers.length); i++) {
                 answerList.push(answerItem.incorrect_answers[i])
@@ -21,20 +20,18 @@ export class Answers extends Component {
         })
         return newAnswerList;
   }
-//   getTruth () {
-//       const trueAnswer =
-//     this.props.trivia.map(answerItem => {
-//         var trueAnswer = <p dangerouslySetInnerHTML={__html: answerItem.correct_answer } />
-//         console.log("getTruth", answerItem.correct_answer);
+  getTruth () {
+      const trueAnswer =
+    this.props.trivia.map(answerItem => {
+        var trueAnswer =answerItem.correct_answer
+        return trueAnswer;
 
-//     })
-//         return (trueAnswer)
-//     }
+    });}
     
     
     render() {
-        var answers
-        answers = this.getAnswerList();
+        var answers = this.getAnswerList();
+        var truth = this.getTruth();
         // var trueAnswer = this.getTruth();
         // console.log("TRUTH",trueAnswer);
         return (
