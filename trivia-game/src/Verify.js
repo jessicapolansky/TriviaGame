@@ -1,24 +1,41 @@
 import React, { Component } from 'react';
+import Scoreboard from './scoreboard';
 
-function checkAnswer (props) {
-    console.log("Props: ", props)
-    if (props.status === "correct") {
+function checkAnswer (ans, correct) {
+    console.log("Answer, Truth: ", ans, correct)
+    if (ans === correct) {
+      console.log("YES!!")
         return (
           <div>
             <h6>Correct!</h6>
           </div>
         );
-      } else if (props.status === 'incorrect') {
+      } else {
+        console.log("No!!")
         return (
           <div>
             <h6>Incorrect!</h6>
           </div>
         );
-      }
-    
-      return <div/>;
+      };
     }
-
+export class TrueAnswer extends Component {
+      constructor (props) {
+          super(props);
+          this.state = {message: ""};
+      }
+    getTruth () {
+      var trueAnswer = 
+      this.props.trivia.map(answerItem => {
+        trueAnswer =answerItem.correct_answer;
+    });
+    return trueAnswer;
+    }
+    render () {
+      var trueAnswer = this.getTruth();
+      return trueAnswer;
+    }
+  }
 function shuffleArray(array) {
     let i = array.length - 1;
     for (; i > 0; i--) {
@@ -29,20 +46,15 @@ function shuffleArray(array) {
     }
     return array;
 }
-function getAnswerButton (shuffledAnswers) {
+function getAnswerButton (shuffledAnswers, trueAnswer) {
       console.log("getAnswerButton", shuffledAnswers);
-      var answerButtons = []
-      for (var i = 0; i < shuffledAnswers.length; i++) {
-        answerButtons.push (
-            <div>
-            <button dangerouslySetInnerHTML={{__html: shuffledAnswers[i]}} onClick={checkAnswer(shuffledAnswers[i])}/>
-            </div>
-        )}
-        return answerButtons;
-        // function getTruth () {
-        //     this.props.trivia.map(answerItem => {
-        //         var trueAnswer = answerItem.correct_answer            
-        //         return (trueAnswer)
-        //     })}
+      var trueAnswer = trueAnswer;
+      console.log("TrueAnswer variable", trueAnswer)
+      return shuffledAnswers.map((ans, i) => {
+          return <div>
+            <button dangerouslySetInnerHTML={{__html: shuffledAnswers[i]}} onClick={(e) => checkAnswer(ans, trueAnswer)}/>
+          </div>
+      });
       }
+
   export {checkAnswer, shuffleArray, getAnswerButton};

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-import { ShowQuestions } from './ShowQuestions'
-import { Answers } from './Answers'
+import { ShowQuestions } from './ShowQuestions';
+import { Answers } from './Answers';
+import { Scoreboard } from './scoreboard';
+import { TrueAnswer } from './Verify';
 
 class App extends Component {
   constructor(props) {
@@ -34,6 +36,8 @@ class App extends Component {
         <button onClick={e => this.get_questions(e)}>Get questions</button>
         <ShowQuestions trivia={this.state.questions} />
         <Answers trivia={this.state.questions}/>
+        <TrueAnswer trivia = {this.state.questions}/>
+        <Scoreboard />
       </div>
     );
   }

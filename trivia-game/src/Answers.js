@@ -15,25 +15,16 @@ export class Answers extends Component {
                 answerList.push(answerItem.incorrect_answers[i])
             }
             answerList.push(answerItem.correct_answer)
+            var trueAnswer = answerItem.correct_answer
                 shuffledAnswers = shuffleArray(answerList);
-                newAnswerList = getAnswerButton(shuffledAnswers);
+                newAnswerList = getAnswerButton(shuffledAnswers, trueAnswer);
         })
         return newAnswerList;
   }
-  getTruth () {
-      const trueAnswer =
-    this.props.trivia.map(answerItem => {
-        var trueAnswer =answerItem.correct_answer
-        return trueAnswer;
-
-    });}
     
     
     render() {
         var answers = this.getAnswerList();
-        var truth = this.getTruth();
-        // var trueAnswer = this.getTruth();
-        // console.log("TRUTH",trueAnswer);
         return (
             <div>
             {answers}
