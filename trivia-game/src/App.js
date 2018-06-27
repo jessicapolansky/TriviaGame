@@ -4,7 +4,6 @@ import axios from 'axios';
 import { ShowQuestions } from './ShowQuestions';
 import { Answers } from './Answers';
 import { Scoreboard } from './scoreboard';
-import { TrueAnswer } from './Verify';
 
 class App extends Component {
   constructor(props) {
@@ -33,10 +32,9 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Trivia Game Night!</h1>
-        <button onClick={e => this.get_questions(e)}>Get questions</button>
+        <button class="btn btn-info" onClick={e => this.get_questions(e)}>Get a new question</button>
         <ShowQuestions trivia={this.state.questions} />
         <Answers trivia={this.state.questions}/>
-        <TrueAnswer trivia = {this.state.questions}/>
         <Scoreboard />
       </div>
     );

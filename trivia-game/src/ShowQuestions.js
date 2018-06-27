@@ -21,8 +21,7 @@ export class ShowQuestions extends Component {
       questions = this.parseQuestionData()
       return (
         <div>
-          <h2>Some Trivia</h2>
-          <p>{questions}</p>
+          <h4>{questions}</h4>
         </div>
       )
     }
