@@ -8,7 +8,7 @@ import { Scoreboard } from './scoreboard';
 class App extends Component {
   constructor(props) {
     super(props);    
-    this.state = { questions: [], answers: [] };
+    this.state = { questions: [], answers: [], statescore: 0 };
     this.get_questions();
   }
   
@@ -17,7 +17,7 @@ class App extends Component {
       'http://localhost:8081/api/get-questions'
     )
      .then((response) => {
-      console.log(response.data.results); 
+      console.log("get questions", response.data.results); 
       this.setState({
          questions: response.data.results
         });
@@ -27,15 +27,24 @@ class App extends Component {
        console.log("error: ", error);
      });
   }
-  
+  myCallback (newScore, props) {
+    if (!newScore) {
+      this.state.statescore = this.state.statescore;
+    } else {
+      this.setState((prevState, newScore) => {
+      this.state.statescore = prevState.statescore + newScore
+    });
+  }
+    return this.state.statescore};
   render() {
+    console.log("App score", this.state.statescore);
     return (
       <div className="App">
         <h1>Trivia Game Night!</h1>
-        <button class="btn btn-info" onClick={e => this.get_questions(e)}>Get a new question</button>
         <ShowQuestions trivia={this.state.questions} />
-        <Answers trivia={this.state.questions}/>
-        <Scoreboard />
+        <Answers trivia={this.state.questions} statescore = {this.state.statescore}/>
+        <Scoreboard statescore = {this.myCallback.statescore}/>
+        <button className="btn btn-info" onClick={e => this.get_questions(e)}>Get a new question</button>
       </div>
     );
   }

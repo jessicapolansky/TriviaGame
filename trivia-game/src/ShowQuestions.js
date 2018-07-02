@@ -21,7 +21,8 @@ export class ShowQuestions extends Component {
       questions = this.parseQuestionData()
       return (
         <div>
-          <h4>{questions}</h4>
+          <br />
+          <h5>{questions}</h5>
         </div>
       )
     }
