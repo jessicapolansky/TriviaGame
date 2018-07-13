@@ -3,13 +3,11 @@ import React, { Component } from "react";
 export class ShowQuestions extends Component {
 	parseQuestionData () {
 		const questionList =
-          this.props.trivia.map(questionItem => {
+          this.props.trivia.map((questionItem,index) => {
 			  return (
 			  <div>
-          			<p dangerouslySetInnerHTML={{__html: questionItem.question}} />
-          			<div>
-                  
-          			</div>
+					  <p dangerouslySetInnerHTML={{__html: questionItem.question}}
+					  key={index} />
           		</div>
           	);
           });
