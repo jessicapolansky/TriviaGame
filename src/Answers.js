@@ -14,13 +14,13 @@ export default class Answers extends Component {
 			this.setState({statescore: this.state.statescore + 1});
 			console.log(this.state.statescore);
 		} else {
-			alert("You got it wrong!!");
-			this.setState({statescore: this.state.statescore + 1});
+			let message = "Sorry, the correct answer was " + correct;
+			alert(message);
+			this.setState({statescore: this.state.statescore + 0});
 
 		}
 	}
 	getAnswerButton (shuffledAnswers, trueAnswer, props) {
-		console.log("getAnswerButton", shuffledAnswers);
 		console.log("TrueAnswer variable", trueAnswer);
 		return shuffledAnswers.map((ans, i) => {
 			return <span>

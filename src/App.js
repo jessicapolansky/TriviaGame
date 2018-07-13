@@ -7,17 +7,10 @@ import { Answers } from "./Answers";
 class App extends Component {
 	constructor(props) {
 		super(props);    
-		this.state = { questions: [], answers: [], showButtons: true };
+		this.state = { questions: [], answers: [] };
 		this.get_questions();
 	}
-	toggleAnswers() {
-		this.setState({
-			showButtons: true});
-	}
-	hideAnswers() {
-		this.setState({
-			showButtons: false});
-	}
+
 	get_questions () {
 		let apiURL = "/api/get-questions";
 		if (window.location.host === "localhost:3000") {
@@ -37,24 +30,21 @@ class App extends Component {
 			});
 	}
 	render() {
-		// let answers = (<div><p>Click the button to begin!</p>
-		// 	<Answers />
-		// </div>);
-		// if (this.state.showButtons) {
-		// 	answers = <Answers
-		// 		trivia={this.state.questions} />;
-		// }
+		let answers = (<Answers
+			trivia={this.state.questions} />);
+		
 		return (
 			<div className="App">
 				<h1>Trivia Game Night!</h1>
 				<ShowQuestions trivia={this.state.questions} />
-				{/* <div onClick={(e) => this.hideAnswers()}>{answers }</div> */}
-				<Answers
-					trivia={this.state.questions} onClick/>
+				<div onClick={(e) => this.get_questions(e)}>{answers }</div>
+				{/* <Answers
+					trivia={this.state.questions} onClick/> */}
 				<button className="btn btn-info" onClick={e => {this.get_questions(e); this.toggleAnswers();}}>Get a new question</button>
 			</div>
 		);
 	}
 }
+
 
 export default App;
