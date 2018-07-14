@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { shuffleArray } from "./Verify";
 
+
 export default class Answers extends Component {
 	constructor (props) {
 		super(props);
@@ -20,7 +21,7 @@ export default class Answers extends Component {
 
 		}
 	}
-	getAnswerButton (shuffledAnswers, trueAnswer, props) {
+	getAnswerButton (shuffledAnswers, trueAnswer) {
 		console.log("TrueAnswer variable", trueAnswer);
 		return shuffledAnswers.map((ans, i) => {
 			return <span>
@@ -52,10 +53,7 @@ export default class Answers extends Component {
 
  
 	render() {
-		var answers;
-		if (this.state.showButtons) {
-			answers = this.getAnswerList();
-		}
+		var answers = this.getAnswerList();
 		return (
 			<div>
 				{answers}

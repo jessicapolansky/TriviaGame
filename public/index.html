@@ -9,14 +9,11 @@
 .answers {
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    margin: 10px;
+	margin: 10px;
 }
-/* .answers:active {
+.answers:hover {
     background-color: #0396AC; /* Green */
     color: white;
-} */
-.answers:focus, .answers:hover {
-  outline: none;
 }
 h4, h1 {
   margin-top: 30px;
@@ -43,7 +40,10 @@ h4, h1 {
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
-    </noscript>
+	</noscript>
+	<script type="text/javascript"> document.addEventListener('click', function(e) {
+		 if(document.activeElement.toString() == '[object HTMLButtonElement]')
+		 { document.activeElement.blur(); } }); </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.
