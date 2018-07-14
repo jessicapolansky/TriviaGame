@@ -8,8 +8,9 @@
 		"express": "^4.16.3",
 		"prop-types": "^15.6.2",
 		"react": "^16.4.1",
+		"react-center-component": "^3.0.0",
 		"react-dom": "^16.4.1",
-		"react-modal-dialog": "^4.0.7",
+		"react-modal-dialog": "github:Dean177/react-modal-dialog#support/bump-react",
 		"react-scripts": "1.1.4"
 	},
 	"scripts": {
