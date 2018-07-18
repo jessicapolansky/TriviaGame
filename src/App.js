@@ -3,7 +3,7 @@ import "./App.css";
 import axios from "axios";
 import { ShowQuestions } from "./ShowQuestions";
 import { Answers } from "./Answers";
-
+//single page trivia game
 class App extends Component {
 	constructor(props) {
 		super(props);    
