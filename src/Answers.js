@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { shuffleArray } from "./Verify";
 import {ModalContainer, ModalDialog} from 'react-modal-dialog';
-
+// this controls the answer buttons and the scoreboard
 export default class Answers extends Component {
 	constructor (props) {
 		super(props);
