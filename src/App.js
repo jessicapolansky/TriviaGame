@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./App.css";
+import React, { Component } from 'react';
+import './App.css';
 import axios from "axios";
 import { ShowQuestions } from "./ShowQuestions";
 import { Answers } from "./Answers";
@@ -36,7 +36,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<h1>Trivia Game Night!</h1>
-				<ShowQuestions trivia={this.state.questions} />
+				<ShowQuestions className="question" trivia={this.state.questions} />
 				<div onClick={(e) => this.get_questions(e)}>{answers }</div>
 				{/* <Answers
 					trivia={this.state.questions} onClick/> */}

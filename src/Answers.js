@@ -14,11 +14,16 @@ export default class Answers extends Component {
 	checkAnswer (ans, correct) {
 		if (ans === correct) {
 			this.handleClick();
-			this.setState({statescore: this.state.statescore + 1});
-			console.log(this.state.statescore);
+			this.setState( prevState => {
+				return (
+					{statescore: prevState.statescore + 1})});
 		} else {
 			this.handleClick();
-			this.setState({statescore: this.state.statescore + 0, message: "Sorry, the correct answer was " + correct });
+			this.setState( prevState => {
+				return (
+					{statescore: prevState.statescore + 0, 
+						message: `Sorry, the correct answer was ` + correct }
+					)});
 
 		}
 	}
